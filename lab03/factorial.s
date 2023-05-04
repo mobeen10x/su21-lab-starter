@@ -25,18 +25,18 @@ main:
 factorial:
     # YOUR CODE HERE
   
-     addi sp, sp, -4
+     addi sp, sp, -4  # to save value of t2  because t2 is only register which i am using 
      sw t2, 0(sp)   
-     add t2 ,x0,a0
-     addi t2 ,t2 ,-1
+     add t2 ,x0,a0   # using t2 and negative 1 in every loop and multipling 
+     addi t2 ,t2 ,-1  
     loop:
    
-     beq  t2,x0, exit
+     beq  t2,x0, exit  
      mul a0 , a0,t2 
      addi t2 ,t2 ,-1
    j loop
 exit:
-    lw t2, 0(sp)        
+    lw t2, 0(sp)       # copy back value of t2 from stack  
     addi sp, sp, 4
 
 ret
