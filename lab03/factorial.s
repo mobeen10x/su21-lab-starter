@@ -7,6 +7,8 @@ n: .word 8
 main:
     la t0, n
     lw a0, 0(t0)
+    
+    addi t2, x0 , 10
     jal ra, factorial
 
     addi a1, a0, 0
@@ -22,3 +24,21 @@ main:
 
 factorial:
     # YOUR CODE HERE
+  
+     addi sp, sp, -4
+     sw t2, 0(sp)   
+     add t2 ,x0,a0
+     addi t2 ,t2 ,-1
+    loop:
+   
+     beq  t2,x0, exit
+     mul a0 , a0,t2 
+     addi t2 ,t2 ,-1
+   j loop
+exit:
+    lw t2, 0(sp)        
+    addi sp, sp, 4
+
+ret
+    
+    

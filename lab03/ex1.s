@@ -17,7 +17,8 @@ fib:
     j fib
 finish:
     addi a0, x0, 1
-    addi a1, t0, 0
+    addi a1, t0, 0  # value of fibo.
     ecall # print integer ecall
     addi a0, x0, 10
     ecall # terminate ecall
+    # new line added to test venus 
