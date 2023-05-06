@@ -1,5 +1,5 @@
 .globl f
-
+#testing
 .data
 neg3:   .asciiz "f(-3) should be 6, and it is: "
 neg2:   .asciiz "f(-2) should be 61, and it is: "
@@ -77,7 +77,11 @@ main:
 # Think: why might having a1 be useful?
 f:
     # YOUR CODE GOES HERE!
-
+    add t0,x0,x0
+    addi t0 , a1 , 12 
+    slli a0, a0, 2
+    add t0 , t0,a0
+    lw a0, 0(t0)
     jr ra               # Always remember to jr ra after your function!
 
 print_int:
